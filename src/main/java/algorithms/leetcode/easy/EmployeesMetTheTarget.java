@@ -33,7 +33,14 @@ Constraints:
 package algorithms.leetcode.easy;
 
 public class EmployeesMetTheTarget {
-    public static int numberOfEmployeesWhoMetTarget(int[] hours, int target) {
+    public static void main(String[] args) {
+        int inputArray[] = {0,1,2,3,4};
+        int target = 2;
+        EmployeesMetTheTarget problem = new EmployeesMetTheTarget();
+        System.out.println(problem.numberOfEmployeesWhoMetTarget(inputArray, target));
+    }
+
+    public int numberOfEmployeesWhoMetTarget(int[] hours, int target) {
         int employeesMetTarget = 0;
         for(int employeeWorkingHours: hours)
             employeesMetTarget += (employeeWorkingHours>=target) ? 1 : 0;

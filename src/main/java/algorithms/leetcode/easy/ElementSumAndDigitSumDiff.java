@@ -32,7 +32,13 @@ Constraints:
 package algorithms.leetcode.easy;
 
 public class ElementSumAndDigitSumDiff {
-    public static int differenceOfSum(int[] nums) {
+    public static void main(String[] args) {
+        int[] inputArray = {1,15,6,3};
+        ElementSumAndDigitSumDiff problem = new ElementSumAndDigitSumDiff();
+        System.out.println(problem.differenceOfSum(inputArray));
+    }
+
+    public int differenceOfSum(int[] nums) {
         int elementSum = 0;
         int digitSum = 0;
         for(int num : nums){

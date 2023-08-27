@@ -9,7 +9,8 @@ class EmployeesMetTheTargetTest {
     @Test
     void numberOfEmployeesWhoMetTarget() {
         int expectedNumberOfEmployeesWhoMetTarget = 3;
-        int actualNumberOfEmployeesWhoMetTarget = EmployeesMetTheTarget.numberOfEmployeesWhoMetTarget(new int[]{0, 1, 2, 3, 4}, 2);
+        EmployeesMetTheTarget employeesMetTheTarget = new EmployeesMetTheTarget();
+        int actualNumberOfEmployeesWhoMetTarget = employeesMetTheTarget.numberOfEmployeesWhoMetTarget(new int[]{0, 1, 2, 3, 4}, 2);
         assertEquals(expectedNumberOfEmployeesWhoMetTarget, actualNumberOfEmployeesWhoMetTarget);
     }
 }

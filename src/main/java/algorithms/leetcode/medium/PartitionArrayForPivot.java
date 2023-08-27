@@ -36,7 +36,16 @@ package algorithms.leetcode.medium;
 import java.util.ArrayList;
 
 public class PartitionArrayForPivot {
-    public static int[] pivotArray(int[] nums, int pivot) {
+    public static void main(String[] args) {
+        int[] inputArray = {9,12,5,10,14,3,10};
+        int pivot = 10;
+        PartitionArrayForPivot problem = new PartitionArrayForPivot();
+        int resultArray[] = problem.pivotArray(inputArray,pivot);
+        for(int num : resultArray)
+            System.out.print(num+" , ");
+    }
+
+    public int[] pivotArray(int[] nums, int pivot) {
         int numsLength = nums.length;
         int pivotCount = 0;
         int[] partitionedArray = new int[numsLength];
