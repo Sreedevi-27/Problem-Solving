@@ -30,7 +30,7 @@ Constraints:
 package algorithms.leetcode.easy;
 
 public class GreatestElementOnRightSide {
-    public int[] replaceElements(int[] arr) {
+    public static int[] replaceElements(int[] arr) {
         int arrayLength = arr.length;
         int greatestElement = -1;
         int[] outputArray = new int[arrayLength];

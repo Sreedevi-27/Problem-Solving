@@ -43,7 +43,7 @@ public class MaxWordsInSentence {
         int maximumWords = 0;
         for(String sentence : sentences){
             int sentenceLength = sentence.length() - sentence.replace(" ", "").length()+1;
-            maximumWords = (maximumWords >= sentenceLength) ? maximumWords : sentenceLength;
+            maximumWords = Math.max(maximumWords, sentenceLength);
         }
         return maximumWords;
     }
