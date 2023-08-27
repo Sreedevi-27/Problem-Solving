@@ -33,13 +33,7 @@ All the words in sentences[i] are separated by a single space.
 package algorithms.leetcode.easy;
 
 public class MaxWordsInSentence {
-    public static void main(String[] args) {
-        String[] sentences = {"alice and bob love leetcode", "i think so too", "this is great thanks very much"};
-        MaxWordsInSentence problem = new MaxWordsInSentence();
-        System.out.println(problem.mostWordsFound(sentences));
-    }
-
-    public int mostWordsFound(String[] sentences) {
+    public static int mostWordsFound(String[] sentences) {
         int maximumWords = 0;
         for(String sentence : sentences){
             int sentenceLength = sentence.length() - sentence.replace(" ", "").length()+1;

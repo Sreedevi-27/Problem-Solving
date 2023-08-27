@@ -30,16 +30,8 @@ package algorithms.leetcode.easy;
 import java.util.HashMap;
 import java.util.Map;
 
-
-
 public class SumOfUniqueElements {
-    public static void main(String[] args) {
-        int[] inputArray = {1,2,3,2};
-        SumOfUniqueElements problem = new SumOfUniqueElements();
-        System.out.println(problem.sumOfUnique(inputArray));
-    }
-
-    public int sumOfUnique(int[] nums) {
+    public static int sumOfUnique(int[] nums) {
         int sum = 0;
         HashMap<Integer, Integer> countOfElements = new HashMap<>();
         for(int num : nums){
