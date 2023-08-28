@@ -41,7 +41,7 @@ public class SumOfUniqueElements {
 
     public int sumOfUnique(int[] nums) {
         int sum = 0;
-        HashMap<Integer, Integer> countOfElements = new HashMap<>();
+        HashMap<Integer, Integer> countOfElements = new HashMap<Integer, Integer>();
         for(int num : nums){
             if(countOfElements.containsKey(num))
                 countOfElements.put(num,  countOfElements.get(num)+1);

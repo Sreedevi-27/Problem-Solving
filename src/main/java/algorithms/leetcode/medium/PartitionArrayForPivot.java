@@ -49,8 +49,8 @@ public class PartitionArrayForPivot {
         int numsLength = nums.length;
         int pivotCount = 0;
         int[] partitionedArray = new int[numsLength];
-        ArrayList<Integer> lowerElements = new ArrayList<>();
-        ArrayList<Integer> greaterElements = new ArrayList<>();
+        ArrayList<Integer> lowerElements = new ArrayList<Integer>();
+        ArrayList<Integer> greaterElements = new ArrayList<Integer>();
         for(int i=0; i<numsLength; i++){
             if(nums[i] < pivot)
                 lowerElements.add(nums[i]);
