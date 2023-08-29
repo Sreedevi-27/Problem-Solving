@@ -33,19 +33,18 @@ import java.util.TreeMap;
 
 public class PeopleInSortedOrder {
     public static String[] sortPeople(String[] names, int[] heights){
-        int arrayLength = names.length;
-        TreeMap<Integer, String> treeMap = new TreeMap<Integer, String>();
-        String[] sortedArray = new String[arrayLength];
+        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
+        String[] peopleSortedByHeight = new String[names.length];
 
-        for(int i=0; i<arrayLength; i++){
-            treeMap.put(heights[i], names[i]);
+        for(int i=0; i<heights.length; i++){
+            treeMap.put(heights[i], i);
         }
 
-        int j=arrayLength-1;
-        for(Map.Entry<Integer, String> value : treeMap.entrySet()){
-            sortedArray[j--] = value.getValue();
+        int j = peopleSortedByHeight.length-1;
+        for(Map.Entry<Integer, Integer> value : treeMap.entrySet()){
+            peopleSortedByHeight[j--] = names[value.getValue()];
         }
-        return sortedArray;
+        return peopleSortedByHeight;
     }
 
 }
