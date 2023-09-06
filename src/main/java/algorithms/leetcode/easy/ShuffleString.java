@@ -28,15 +28,22 @@ import java.util.TreeMap;
 
 public class ShuffleString {
     public static String restoreString(String s, int[] indices) {
-        String shuffledString = "";
-        TreeMap<Integer,Character> pair = new TreeMap<>();
-        for(int i=0; i<s.length(); i++){
-            char c = s.charAt(i);
-            pair.put(indices[i], c);
+//        String shuffledString = "";
+//        TreeMap<Integer,Character> pair = new TreeMap<>();
+//        for(int i=0; i<s.length(); i++){
+//            char c = s.charAt(i);
+//            pair.put(indices[i], c);
+//        }
+//        for(int i=0; i<pair.size(); i++){
+//            shuffledString += pair.get(i);
+//        }
+//        return shuffledString;
+
+        char[] shuffledString = new char[indices.length];
+        for(int i=0; i<indices.length; i++){
+            int index = indices[i];
+            shuffledString[index] = s.charAt(i);
         }
-        for(int i=0; i<pair.size(); i++){
-            shuffledString += pair.get(i);
-        }
-        return shuffledString;
+        return new String(shuffledString);
     }
 }
