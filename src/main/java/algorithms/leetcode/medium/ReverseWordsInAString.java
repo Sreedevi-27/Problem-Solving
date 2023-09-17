@@ -33,15 +33,12 @@ import java.util.Arrays;
 
 public class ReverseWordsInAString {
     public static String reverseWords(String s){
-        String result = "";
+        StringBuilder result = new StringBuilder();
         String[] sArray = s.trim().split(" ");
-        System.out.println(Arrays.toString(sArray));
-        int sArrayLength = sArray.length;
-
-        for(int i=sArrayLength-1; i>=0; i--){
+        for(int i=sArray.length-1; i>=0; i--){
             if(!sArray[i].isEmpty())
-                result += sArray[i]+" ";
+                result.append(sArray[i]).append(" ");
         }
-       return result.trim();
+       return result.toString().trim();
     }
 }

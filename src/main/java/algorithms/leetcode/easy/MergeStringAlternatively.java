@@ -37,16 +37,13 @@ word1 and word2 consist of lowercase English letters.
  */
 public class MergeStringAlternatively {
     public static String mergeAlternately(String word1, String word2) {
-        String mergedString = "";
-        int i=0, j=0;
+        StringBuilder mergedString = new StringBuilder();
         int word1Length = word1.length();
         int word2Length = word2.length();
-        while(i<word1Length || j<word2Length){
-            if(i<word1Length)
-                mergedString += word1.charAt(i++);
-            if(j<word2Length)
-                mergedString += word2.charAt(j++);
+        for(int i=0,j=0;  i<word1Length||j<word2Length; ){
+            mergedString.append(i < word1Length ? word1.charAt(i++) : "");
+            mergedString.append(j < word2Length ? word2.charAt(j++) : "");
         }
-        return mergedString;
+        return mergedString.toString();
     }
 }

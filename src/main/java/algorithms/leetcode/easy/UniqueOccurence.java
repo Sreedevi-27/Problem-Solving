@@ -29,13 +29,10 @@ import java.util.Map;
 
 public class UniqueOccurence {
     public static  boolean uniqueOccurrences(int[] arr) {
-        Map<Integer,Integer> numberOccurences = new HashMap<Integer,Integer>();
+        Map<Integer,Integer> numberOccurences = new HashMap<>();
         for(int element : arr)
             numberOccurences.put(element,numberOccurences.getOrDefault(element,0)+1);
-
         HashSet<Integer> uniqueElement = new HashSet<>(numberOccurences.values());
-        if(uniqueElement.size() == numberOccurences.size())
-            return true;
-        return false;
+        return (uniqueElement.size() == numberOccurences.size());
     }
 }
