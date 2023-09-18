@@ -27,17 +27,20 @@ Each element in nums appears once or twice.
 
 package algorithms.leetcode.medium;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
 public class FindAllDuplicatesInArray {
     public static List<Integer> findDuplicates(int[] nums) {
-        List<Integer> duplicatedList = new ArrayList<Integer>();
-        HashSet<Integer> noDuplicateSet = new HashSet<Integer>();
-        for(int i=0; i<nums.length; i++){
-            if(!noDuplicateSet.add(nums[i]))
-                duplicatedList.add(nums[i]);
+        List<Integer> duplicatedList = new ArrayList<>();
+        for(int num : nums){
+            int absNum = Math.abs(num);
+            if(nums[absNum-1] < 0)
+                duplicatedList.add(absNum);
+            else
+                nums[absNum-1] *= -1;
         }
         return duplicatedList;
     }

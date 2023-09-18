@@ -30,36 +30,36 @@ words[i] consists of English letters (both lowercase and uppercase).
 
 package algorithms.leetcode.easy;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class KeyboardRow {
     public static String[] findWords(String[] words) {
         ArrayList<String> lettersInSameRow = new ArrayList<>();
-        String firstRow = "qwertyuiop";
-        String secondRow = "asdfghjkl";
-        String thirdRow = "zxcvbnm";
+        Set<Character> firstRow = new HashSet<>(Arrays.asList('q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'));
+        Set<Character> secondRow = new HashSet<>(Arrays.asList('a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'));
+        Set<Character> thirdRow = new HashSet<>(Arrays.asList('z', 'x', 'c', 'v', 'b', 'n', 'm'));
 
-        for(int i=0; i<words.length; i++){
-            String word = words[i].toLowerCase();
-            String fixRow = "";
-            if(firstRow.indexOf(word.charAt(0)) != -1)
+        for(String word : words){
+            String wordInLowercase = word.toLowerCase();
+            Set<Character> fixRow;
+            char firstChar = wordInLowercase.charAt(0);
+            if(firstRow.contains(firstChar))
                 fixRow = firstRow;
-            else if(secondRow.indexOf(word.charAt(0)) != -1)
+            else if(secondRow.contains(firstChar))
                 fixRow = secondRow;
             else
                 fixRow = thirdRow;
 
             if(isPartOfWord(word, fixRow))
-                lettersInSameRow.add(words[i]);
+                lettersInSameRow.add(word);
         }
 
-        return lettersInSameRow.toArray(new String[lettersInSameRow.size()]);
+        return lettersInSameRow.toArray(new String[0]);
     }
 
-    public static boolean isPartOfWord(String word, String fixRow){
+    public static boolean isPartOfWord(String word, Set<Character> fixRow){
         for(int j=0; j<word.length(); j++){
-            int indexOfLetterInWord = fixRow.indexOf(word.charAt(j));
-            if(indexOfLetterInWord == -1)
+            if(!fixRow.contains(word.charAt(j)))
                 return false;
         }
         return true;
