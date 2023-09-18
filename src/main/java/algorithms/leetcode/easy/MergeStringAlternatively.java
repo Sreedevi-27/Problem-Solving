@@ -41,8 +41,10 @@ public class MergeStringAlternatively {
         int word1Length = word1.length();
         int word2Length = word2.length();
         for(int i=0,j=0;  i<word1Length||j<word2Length; ){
-            mergedString.append(i < word1Length ? word1.charAt(i++) : "");
-            mergedString.append(j < word2Length ? word2.charAt(j++) : "");
+            if(i<word1Length)
+                mergedString.append(word1.charAt(i++));
+            if(j<word2Length)
+                mergedString.append(word2.charAt(j++));
         }
         return mergedString.toString();
     }

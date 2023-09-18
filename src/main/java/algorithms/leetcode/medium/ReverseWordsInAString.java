@@ -36,8 +36,9 @@ public class ReverseWordsInAString {
         StringBuilder result = new StringBuilder();
         String[] sArray = s.trim().split(" ");
         for(int i=sArray.length-1; i>=0; i--){
-            if(!sArray[i].isEmpty())
-                result.append(sArray[i]).append(" ");
+            String elementInArray = sArray[i];
+            if(!elementInArray.isEmpty())
+                result.append(elementInArray).append(" ");
         }
        return result.toString().trim();
     }

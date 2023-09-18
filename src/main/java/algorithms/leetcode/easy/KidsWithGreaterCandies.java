@@ -46,7 +46,7 @@ public class KidsWithGreaterCandies {
         for (int candy : candies)
             maxCandy = Math.max(candy, maxCandy);
         for (int candy : candies) {
-            boolean b = (isKidsHaveGreatestCandies.add(candy + extraCandies >= maxCandy));
+            isKidsHaveGreatestCandies.add(candy + extraCandies >= maxCandy);
         }
         return isKidsHaveGreatestCandies;
     }
