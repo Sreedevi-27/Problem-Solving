@@ -32,40 +32,26 @@ groupSizes.length == n
 import java.util.*;
 public class GroupOfPeople {
     public static List<List<Integer>> groupThePeople(int[] groupSizes) {
-        HashMap<Integer, Queue> countGroups = new HashMap<>();
+        Map<Integer, List<Integer>> countGroups = new TreeMap<>();
         for (int index=0; index<groupSizes.length ; index++) {
-            if (countGroups.containsKey(groupSizes[index])) {
-                Queue indeicesInGroup = countGroups.get(groupSizes[index]);
-                indeicesInGroup.add(index);
-                countGroups.put(groupSizes[index], indeicesInGroup);
-
-            } else{
-                Queue indeicesInNewGroup = new LinkedList<>();
-                indeicesInNewGroup.add(index);
-                countGroups.put(groupSizes[index], indeicesInNewGroup);
-            }
+            List<Integer> group = countGroups.getOrDefault(groupSizes[index], new ArrayList<>());
+            group.add(index);
+            countGroups.put(groupSizes[index], group);
         }
-
-        List<List<Integer>> finalGroupOfPeople = new ArrayList<>();
-        for(Map.Entry<Integer,Queue> entry : countGroups.entrySet()){
-            int countInEachGroup = entry.getKey();
-            Queue groupOfPeople = entry.getValue();
-            int groupOfPeopleSize = groupOfPeople.size();
-
-            if(countInEachGroup==groupOfPeopleSize)
-                finalGroupOfPeople.add((List<Integer>) groupOfPeople);
-            else{
-                List<Integer> list = new ArrayList<>();
-                while(groupOfPeople.size() > 0){
-                    if(list.size() == countInEachGroup) {
-                        finalGroupOfPeople.add(list);
-                        list = new ArrayList<>();
-                    }
-                    list.add((Integer) groupOfPeople.remove());
-                }
-                finalGroupOfPeople.add(list);
-            }
-        }
-        return finalGroupOfPeople;
+        return new ArrayList<>(GroupOfPeople.splitListAccordingToCount(countGroups));
     }
+
+    public static List<List<Integer>> splitListAccordingToCount(Map<Integer, List<Integer>> countGroups){
+        List<List<Integer>> finalList = new ArrayList<>();
+        for(Map.Entry<Integer,List<Integer>> entry : countGroups.entrySet()) {
+            int groupCount = entry.getKey();
+            List<Integer> groupOfPeople = entry.getValue();
+            for(int i=0; i<groupOfPeople.size(); ){
+                finalList.add(groupOfPeople.subList(i, i+groupCount));
+                i += groupCount;
+            }
+        }
+        return finalList;
+    }
+
 }
