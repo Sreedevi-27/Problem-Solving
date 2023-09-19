@@ -41,7 +41,8 @@ public class MaximumNestingDepth {
                 count++;
                 maxDepth = Math.max(maxDepth, count);
             }
-            count = (c == ')' ? count-- : 0);
+            if(c==')')
+                count--;
         }
         return maxDepth;
     }
