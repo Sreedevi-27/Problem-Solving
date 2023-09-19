@@ -27,12 +27,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-public class UniqueOccurence {
+public class UniqueOccurrence {
     public static  boolean uniqueOccurrences(int[] arr) {
-        Map<Integer,Integer> numberOccurences = new HashMap<>();
+        Map<Integer,Integer> numberOccurrences = new HashMap<>();
         for(int element : arr)
-            numberOccurences.put(element,numberOccurences.getOrDefault(element,0)+1);
-        HashSet<Integer> uniqueElement = new HashSet<>(numberOccurences.values());
-        return (uniqueElement.size() == numberOccurences.size());
+            numberOccurrences.put(element,numberOccurrences.getOrDefault(element,0)+1);
+        HashSet<Integer> uniqueElement = new HashSet<>(numberOccurrences.values());
+        return (uniqueElement.size() == numberOccurrences.size());
     }
 }
