@@ -29,18 +29,29 @@ import java.util.Stack;
 
 public class MinimumAddToFormValidParentheses {
     public static int minAddToMakeValid(String s) {
-        Stack<Character> stack = new Stack<>();
+//        Stack<Character> stack = new Stack<>();
+//        for(int i=0; i<s.length(); i++){
+//            char ch = s.charAt(i);
+//            if(stack.isEmpty())
+//                stack.push(ch);
+//            else if(stack.peek()=='(' && ch==')')
+//                stack.pop();
+//            else
+//                stack.push(ch);
+//        }
+//        return stack.size();
+
+        int open = 0;
+        int close = 0;
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
             if (ch == '(')
-                stack.push(ch);
-            else if (ch == ')') {
-                if(!stack.isEmpty() && (stack.peek() == '('))
-                    stack.pop();
-                else
-                    stack.push(ch);
-            }
+                open++;
+            else if (ch == ')' && open == 0)
+                close++;
+            else if (ch == ')' && open != 0)
+                open--;
         }
-        return stack.size();
+        return open + close;
     }
 }

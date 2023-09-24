@@ -37,12 +37,9 @@ public class MaximumNestingDepth {
         int maxDepth = 0;
         for(int i=0; i<s.length(); i++){
             char c = s.charAt(i);
-            if(c=='('){
-                count++;
-                maxDepth = Math.max(maxDepth, count);
-            }
-            if(c==')')
-                count--;
+            if(c=='(')  count++;
+            else if(c==')')  count--;
+            maxDepth = Math.max(maxDepth, count);
         }
         return maxDepth;
     }
