@@ -34,23 +34,49 @@ chars[i] is a lowercase English letter, uppercase English letter, digit, or symb
 package algorithms.leetcode.medium;
 
 public class StringCompression {
-    public static int compressString(char[] chars){
-        StringBuilder resultLen = new StringBuilder();
-        for(int i=0; i<chars.length; i++) {
-            int j = 1;
-            while (i + 1 < chars.length && chars[i + 1] == chars[i]) {
-                j++;
-                i++;
-            }
-            resultLen.append(chars[i]);
-            if(j>1){
-                resultLen.append(j);
+    public static int compressString(char[] chars) {
+
+        int count = 1;
+        int j = 0;
+
+        for (int i = 1; i < chars.length; i++) {
+            char currentChar = chars[i];
+            char previousChar = chars[i - 1];
+            if (currentChar == previousChar)
+                count++;
+            else {
+                chars[j++] = previousChar;
+                if (count > 1) {
+                    for (char ch : Integer.toString(count).toCharArray())
+                        chars[j++] = ch;
+                }
+                count = 1;
             }
         }
 
-        for(int k=0; k<resultLen.length(); k++){
-            chars[k] = resultLen.charAt(k);
+        chars[j++] = chars[chars.length - 1];
+        if (count > 1) {
+            for (char ch : Integer.toString(count).toCharArray())
+                chars[j++] = ch;
         }
-        return resultLen.length();
+
+        return j;
+
+
+//        int count = 0;
+//        int j = 0;
+//        for (int i = 0; i < chars.length + 1; i++) {
+//            if (i == 0 || (i < chars.length && chars[i] == chars[i - 1]))
+//                count++;
+//            else {
+//                chars[j++] = chars[i - 1];
+//                if (count > 1) {
+//                    for (char ch : Integer.toString(count).toCharArray())
+//                        chars[j++] = ch;
+//                }
+//                count = 1;
+//            }
+//        }
+//        return j;
     }
 }
