@@ -32,20 +32,18 @@ Constraints:
  */
 
 public class ExcelSheetColumnTitle {
+    private static final byte ALPHABETS_COUNT = 26;
+
     public static String convertToTitle(int columnNumber) {
-        StringBuffer columnTitle = new StringBuffer();
-        int remainder = columnNumber;
-        while(columnNumber>26){
-            remainder = columnNumber%26;
-            if(remainder==0){
-                columnNumber = columnNumber-1;
-                remainder = columnNumber%26;
-                columnTitle.append((char)(remainder+65));
-            }else
-                columnTitle.append((char)(remainder+64));
-            columnNumber /= 26;
+        StringBuilder columnTitle = new StringBuilder();
+
+        while (columnNumber > 0) {
+            int remainder = columnNumber % ALPHABETS_COUNT;
+            columnNumber /= ALPHABETS_COUNT;
+            columnTitle.append((remainder == 0) ? 'Z' : (char) ('A' - 1 + remainder));
+            if (remainder == 0) columnNumber--;
         }
-        columnTitle.append((char)(columnNumber+64));
+
         return columnTitle.reverse().toString();
     }
 }

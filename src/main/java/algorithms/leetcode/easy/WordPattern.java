@@ -26,26 +26,32 @@ s contains only lowercase English letters and spaces ' '.
 s does not contain any leading or trailing spaces.
 All the words in s are separated by a single space.
  */
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class WordPattern {
     public static boolean wordPattern(String pattern, String s) {
         String[] words = s.split(" ");
         int patternLength = pattern.length();
-        if(words.length != patternLength)
+        if (words.length != patternLength)
             return false;
 
-        Map<Character,String> patternMap = new HashMap<>();
-        for(int i=0; i<patternLength; i++){
+        Map<Character, Integer> patternMap = new HashMap<>();
+        Map<String, Integer> wordMap = new HashMap<>();
+        for (int i = 0; i < patternLength; i++) {
             char c = pattern.charAt(i);
-            String arrayElement = words[i];
-            if(patternMap.containsKey(c) && !patternMap.get(c).equals(arrayElement))
+            String word = words[i];
+
+            if (patternMap.size() != wordMap.size()) return false;
+            if (patternMap.containsKey(c) && !wordMap.containsKey(word)) return false;
+            if (!patternMap.containsKey(c) && wordMap.containsKey(word)) return false;
+            if (patternMap.containsKey(c) && wordMap.containsKey(word) && !Objects.equals(patternMap.get(c), wordMap.get(word)))
                 return false;
-            else if(!patternMap.containsKey(c) && patternMap.containsValue(arrayElement))
-                return false;
-            else
-                patternMap.put(c, arrayElement);
+
+            patternMap.put(c, i);
+            wordMap.put(word, i);
         }
 
         return true;
