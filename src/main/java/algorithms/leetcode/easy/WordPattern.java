@@ -31,15 +31,15 @@ import java.util.Map;
 
 public class WordPattern {
     public static boolean wordPattern(String pattern, String s) {
-        String[] sArray = s.split(" ");
+        String[] words = s.split(" ");
         int patternLength = pattern.length();
-        if(sArray.length != patternLength)
+        if(words.length != patternLength)
             return false;
 
         Map<Character,String> patternMap = new HashMap<>();
         for(int i=0; i<patternLength; i++){
             char c = pattern.charAt(i);
-            String arrayElement = sArray[i];
+            String arrayElement = words[i];
             if(patternMap.containsKey(c) && !patternMap.get(c).equals(arrayElement))
                 return false;
             else if(!patternMap.containsKey(c) && patternMap.containsValue(arrayElement))
