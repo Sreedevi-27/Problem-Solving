@@ -58,8 +58,7 @@ public class SetMatrixZero {
         boolean[] column = new boolean[c];
         for(int i=0; i<r; i++){
             for(int j=0; j<c; j++){
-                int element = matrix[i][j];
-                if(element==0){
+                if(matrix[i][j]==0){
                     row[i] = true;
                     column[j] = true;
                 }
@@ -77,6 +76,6 @@ public class SetMatrixZero {
 }
 
 /*
-Time complexity : O(r*c) + O(r*c) => O(r*c ^ 2)
+Time complexity : O(r*c) + O(r*c) => 2 O(r*c) => O(r*c)
 Space complexity : O(r) + O(c) => O(r+c)
  */
