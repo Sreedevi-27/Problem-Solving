@@ -20,8 +20,10 @@ The number of nodes in the list is in the range [1, 100].
 1 <= Node.val <= 100
  */
 
+import algorithms.leetcode.utility.ListNode;
+
 public class MiddleOfLinkedList {
-    public ListNode middleNode(ListNode head) {
+    public static ListNode middleNode(ListNode head) {
         if(head.next == null) return head;
         ListNode temp = head;
         int count = 0;
@@ -34,7 +36,6 @@ public class MiddleOfLinkedList {
         while(head != null && count-->0){
             head = head.next;
         }
-
         return head;
     }
 }

@@ -24,8 +24,10 @@ The number of nodes in both lists is in the range [0, 50].
 Both list1 and list2 are sorted in non-decreasing order.
  */
 
+import algorithms.leetcode.utility.ListNode;
+
 public class MergeTwoSortedLinkedList {
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         if(list1==null) return list2;
         if(list2==null) return list1;
         ListNode finalNode = new ListNode(-1);

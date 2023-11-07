@@ -22,8 +22,10 @@ Number of nodes will not exceed 30.
 Each node's value is either 0 or 1.
  */
 
+import algorithms.leetcode.utility.ListNode;
+
 public class BinaryToIntergerInLinkedList {
-    public int getDecimalValue(ListNode head) {
+    public static int getDecimalValue(ListNode head) {
         int count = getCount(head)-1;
         ListNode traverseNode = head;
         int integerNumber = 0;
@@ -34,7 +36,7 @@ public class BinaryToIntergerInLinkedList {
         return integerNumber;
     }
 
-    public int getCount(ListNode head){
+    public static int getCount(ListNode head){
         ListNode temp = head;
         int size = 0;
         while(temp!=null){
