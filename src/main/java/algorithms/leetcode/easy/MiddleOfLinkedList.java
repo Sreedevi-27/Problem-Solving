@@ -25,17 +25,11 @@ import algorithms.leetcode.utility.ListNode;
 public class MiddleOfLinkedList {
     public static ListNode middleNode(ListNode head) {
         if(head.next == null) return head;
-        ListNode temp = head;
-        int count = 0;
-        while(temp != null){
-            count++;
-            temp = temp.next;
+        ListNode slow = head, fast = head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        count = count/2;
-
-        while(head != null && count-->0){
-            head = head.next;
-        }
-        return head;
+        return slow;
     }
 }

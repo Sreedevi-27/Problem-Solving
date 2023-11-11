@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BinaryToIntergerInLinkedListTest {
+class BinaryToIntegerInLinkedListTest {
     @Test
     void testWithBinaryNumbers(){
         int[] inputArray = new int[]{1,0,1};
         int expectedInteger = 5;
         LinkedListUtility operations = new LinkedListUtility();
         ListNode inputNode = operations.convertArrayToNode(inputArray);
-        int actualInteger = BinaryToIntergerInLinkedList.getDecimalValue(inputNode);
+        int actualInteger = BinaryToIntegerInLinkedList.getDecimalValue(inputNode);
         assertEquals(expectedInteger, actualInteger);
     }
 
@@ -23,7 +23,7 @@ class BinaryToIntergerInLinkedListTest {
         int expectedInteger = 2957087;
         LinkedListUtility operations = new LinkedListUtility();
         ListNode inputNode = operations.convertArrayToNode(inputArray);
-        int actualInteger = BinaryToIntergerInLinkedList.getDecimalValue(inputNode);
+        int actualInteger = BinaryToIntegerInLinkedList.getDecimalValue(inputNode);
         assertEquals(expectedInteger, actualInteger);
     }
 
@@ -33,7 +33,7 @@ class BinaryToIntergerInLinkedListTest {
         int expectedInteger = 0;
         LinkedListUtility operations = new LinkedListUtility();
         ListNode inputNode = operations.convertArrayToNode(inputArray);
-        int actualInteger = BinaryToIntergerInLinkedList.getDecimalValue(inputNode);
+        int actualInteger = BinaryToIntegerInLinkedList.getDecimalValue(inputNode);
         assertEquals(expectedInteger, actualInteger);
     }
 }

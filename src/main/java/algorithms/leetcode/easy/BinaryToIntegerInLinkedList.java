@@ -24,7 +24,7 @@ Each node's value is either 0 or 1.
 
 import algorithms.leetcode.utility.ListNode;
 
-public class BinaryToIntergerInLinkedList {
+public class BinaryToIntegerInLinkedList {
     public static int getDecimalValue(ListNode head) {
         int count = getCount(head)-1;
         ListNode traverseNode = head;
@@ -38,11 +38,9 @@ public class BinaryToIntergerInLinkedList {
 
     public static int getCount(ListNode head){
         ListNode temp = head;
-        int size = 0;
-        while(temp!=null){
-            size++;
+        int size;
+        for(size=0; temp!=null; size++)
             temp = temp.next;
-        }
         return size;
     }
 }
